@@ -1,6 +1,6 @@
-import { Brand } from './assets/components/Brand'
-import { CategoryItem } from './assets/components/CategoryItem'
-import { CartContainer } from  './assets/components/CartContainer'
+import { Brand } from './components/Brand'
+import { CategoryItem } from './components/CategoryItem'
+import { CartContainer } from  './components/CartContainer'
 
 import "./App.css"
 
