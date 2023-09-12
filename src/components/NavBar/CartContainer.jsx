@@ -3,7 +3,7 @@ import { CartItem } from './CartItem'
 
 export const CartContainer = () => {
     return (
-        <div className="bg-warning rounded-circle p-3 position-relative">
+        <div className="p-3 position-relative ">
             <CartWidget/>
             <CartItem count={2}/>
         </div>
