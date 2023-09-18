@@ -1,9 +1,7 @@
-export const CartItem = ({count = 0}) => {
+export const CartItem = ({ count = 0 }) => {
     return (
-        <div className="position-absolute bg-primary rounded-circle px-2" style={{top:"0", right:"0"}} >
-            <span style={{fontSize: "10px", color:"white"}}>
-                {count}
-            </span>
-        </div>
+        <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
+            {count}
+        </span>
     )
 }

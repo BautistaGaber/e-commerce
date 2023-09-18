@@ -1,7 +1,7 @@
 export const Brand = () => {
     return (
-    <a className="navbar-brand bg-warning" href='?' >
-        Mercado Libre
-    </a>
+        <a href="#">
+            <img className="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" />
+        </a>
     )
 }

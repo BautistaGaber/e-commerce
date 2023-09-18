@@ -1,7 +1,7 @@
-export const CategoryItem = ({isActive, name}) => {
-    return(
-        <a className={`nav-link ${isActive ? "active" : null}`} aria-current="page" href="?">
+export const CategoryItem = ({ name }) => {
+    return (
+        <a href="#" className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800">
             {name}
         </a>
-    )       
+    )
 }
