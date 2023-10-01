@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import ProductsContainer from './ProductsContainer'
+import ProductsContainer from './ProductsContainer' 
 
 const ItemListContainer = () => {
   const [products, setProducts] = useState([])
@@ -12,7 +12,8 @@ const ItemListContainer = () => {
       .finally(() =>
         setLoading(false))
   }, [])
-  console.log(products)
+
+ console.log(products)
 
   if (Loading) {
     return <h1 className="text-3xl text-center font-bold underline">Cargando...</h1>
