@@ -3,6 +3,7 @@ import Products from './components/Products'
 import NavBar from './components/NavBar'
 import Home from './components/Home'
 import NotFound from './components/NotFound/NotFound'
+import ProductsById from './components/ProductsId/ProductsById'
 
 function App() {
   return (
@@ -12,8 +13,8 @@ function App() {
       <Routes>
         <Route path='/' element={<Home/>} />
         <Route path='products' element={<Products/>}/>
-        <Route path='products/*' element={<NotFound/>}/>
-        <Route path='/*' element={<NotFound/>}/>
+        <Route exact path='products/:id' element={<ProductsById/>}/>
+        <Route path='*' element={<NotFound/>}/>
       </Routes>
       </BrowserRouter>
     </>

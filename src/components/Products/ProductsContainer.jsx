@@ -1,9 +1,8 @@
-import ButtonDetails from './ButtonDetails'
-
 const ProductsContainer = ({ product }) => {
+
   return (
     <>
-      <div className="hover:opacity-75">
+      <div >
         <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-2 00 lg:aspect-none group-hover:opacity-75 lg:h-80">
           <img src={product.image} alt="Front of men&#039;s Basic Tee in black." className="h-full w-full object-cover object-center lg:h-full lg:w-full" />
         </div>
@@ -21,7 +20,6 @@ const ProductsContainer = ({ product }) => {
             </div>
             <p className="text-sm font-medium text-gray-900">{product.price}</p>
           </div>
-          <ButtonDetails buttonName = 'detalle' />
         </div>
       </div>
     </>
