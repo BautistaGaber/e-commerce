@@ -1,7 +1,7 @@
 
 import ProductsContainer from './ProductsContainer'
 import { useEffect, useState } from 'react'
-import { getListProducts } from './ProductsEf'
+import { getListProducts } from './GetProducts'
 import ButtonDetails from './ButtonDetails'
 
 const ItemListContainer = () => {

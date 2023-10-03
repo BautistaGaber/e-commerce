@@ -3,7 +3,7 @@ import Products from './components/Products'
 import NavBar from './components/NavBar'
 import Home from './components/Home'
 import NotFound from './components/NotFound/NotFound'
-import ProductsById from './components/ProductsId/ProductsById'
+import ProductsById from './components/Products/ProductsById'
 
 function App() {
   return (

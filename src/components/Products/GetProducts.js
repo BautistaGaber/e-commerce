@@ -8,5 +8,9 @@ export const getProductById = (id) => {
     return fetch(`${API_URL}/${id}`)
 }
 
+export const getProductsByCategory = (nameCategory) => {
+    return fetch(`${API_URL}/category/${nameCategory}`)
+}
+
 
 

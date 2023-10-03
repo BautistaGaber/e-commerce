@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { getProductById } from '../Products/ProductsEf'
+import { getProductById } from './GetProducts'
 import { useParams } from 'react-router-dom'
 
 const ProductById = () => {
@@ -24,7 +24,7 @@ const ProductById = () => {
             <div className="fixed w-screen h-screen overflow-y-auto">
                 <div className="flex min-h-full pt-20 items-start justify-center md:px-2 lg:px-4">
                     <div className="flex w-full transform text-left text-base transition md:my-8 md:max-w-2xl md:px-4 lg:max-w-5xl">
-                        <div className="relative border border-black flex w-full items-center overflow-hidden bg-white px-4 pb-8 pt-14 shadow-2xl sm:px-6 sm:pt-8 md:p-6 lg:p-8">
+                        <div className="relative border flex w-full items-center overflow-hidden bg-white px-4 pb-8 pt-14 shadow-2xl sm:px-6 sm:pt-8 md:p-6 lg:p-8">
                             <button type="button" className="absolute right-4 top-4 text-gray-400 hover:text-gray-500 sm:right-6 sm:top-8 md:right-6 md:top-6 lg:right-8 lg:top-8">
                                 <span className="sr-only">Close</span>
                                 <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true">
@@ -41,9 +41,6 @@ const ProductById = () => {
 
                                     <section aria-labelledby="information-heading" className="mt-2">
                                         <p className="text-2xl font-bold text-gray-900 mt-12">${product.price}</p>
-                                    </section>
-                                    <section>
-                                        <p className="text-2xl font-bold bg-black w-2/6 text-gray-900 mt-12">hh</p>
                                     </section>
                                     <section>
                                         <p className="text-xl text-gray-900 mt-16">{product.description}</p>
