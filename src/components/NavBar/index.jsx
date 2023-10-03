@@ -48,10 +48,9 @@ const NavBar = () => {
                             <div className="hidden lg:ml-8 lg:block lg:self-stretch">
                                 <div className="flex h-full mt-6 space-x-8">
                                     <NavLink to="/"><CategoryItem name="Home" /></NavLink>
-                                    <NavLink><CategoryItem name="Mens" /></NavLink>
-                                    <NavLink><CategoryItem name="Womens" /></NavLink>
+                                    {/* <NavLink><CategoryItem name="Mens" /></NavLink>
+                                    <NavLink><CategoryItem name="Womens" /></NavLink> */}
                                     <NavLink to="/products"><CategoryItem name="Products" /></NavLink>
-                                    <NavLink><CategoryItem name="Stores" /></NavLink>
                                 </div>
                             </div>
 
