@@ -1,6 +1,6 @@
 
 import ProductsContainer from './ProductsContainer'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, memo} from 'react'
 import { getListProducts } from './GetProducts'
 import ButtonDetails from './ButtonDetails'
 
@@ -36,7 +36,7 @@ const ItemListContainer = () => {
             products.map((product) => (
               <div key={product.id}>
                 <ProductsContainer product={product} />
-                <a href={`/products/${product.id}`} >
+                <a href={`/products/${product.id}`} > 
                   <ButtonDetails buttonName='detalle' />
                 </a>
               </div>
@@ -47,5 +47,6 @@ const ItemListContainer = () => {
     </div>
   )
 }
+const MemoizedItemListContainer = memo(ItemListContainer);
 
-export default ItemListContainer
+export default MemoizedItemListContainer

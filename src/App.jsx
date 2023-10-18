@@ -4,6 +4,7 @@ import NavBar from './components/NavBar'
 import Home from './components/Home'
 import NotFound from './components/NotFound/NotFound'
 import ProductsById from './components/Products/ProductsById'
+import Footer from './components/Footer'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route exact path='products/:id' element={<ProductsById/>}/>
         <Route path='*' element={<NotFound/>}/>
       </Routes>
+      <Footer/>
       </BrowserRouter>
     </>
   )
