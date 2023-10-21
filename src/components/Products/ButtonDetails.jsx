@@ -1,12 +1,10 @@
-const ButtonDetails = ({buttonName}) => {
+const ButtonDetails = ({ buttonName }) => {
 
-    return(
-        <div className="button-details">
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
-                {buttonName}
-            </button>
-        </div>
-    ) 
+    return (
+        <span className="text-blue-700 font-bold py-2 px-4 cursor-pointer">
+            {buttonName}
+        </span>
+    )
 }
 
 export default ButtonDetails
