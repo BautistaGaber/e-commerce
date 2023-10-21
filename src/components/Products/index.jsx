@@ -1,8 +1,7 @@
 
-import ProductsContainer from './ProductsContainer'
+import ProductsContainer from './ProductsCard'
 import { useEffect, useState, memo} from 'react'
 import { getListProducts } from './GetProducts'
-import ButtonDetails from './ButtonDetails'
 
 const ItemListContainer = () => {
   const [products, setProducts] = useState([])
@@ -36,9 +35,6 @@ const ItemListContainer = () => {
             products.map((product) => (
               <div key={product.id}>
                 <ProductsContainer product={product} />
-                <a href={`/products/${product.id}`} > 
-                  <ButtonDetails buttonName='detalle' />
-                </a>
               </div>
             ))
           }
