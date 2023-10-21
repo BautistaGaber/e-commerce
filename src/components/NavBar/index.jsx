@@ -1,6 +1,5 @@
 import { NavLink } from 'react-router-dom'
 import { Brand } from './Brand'
-import { CartItem } from './CartItem'
 import { CartWidget } from './CartWidget'
 import { CategoryItem } from './CategoryItem'
 
@@ -81,7 +80,6 @@ const NavBar = () => {
                                 <div className="ml-4 flow-root lg:ml-6">
                                     <a href="#" className="group -m-2 flex items-center p-2">
                                         <CartWidget />
-                                        <CartItem count={3} />
                                     </a>
                                 </div>
                             </div>
