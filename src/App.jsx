@@ -6,6 +6,7 @@ import NotFound from './components/NotFound/NotFound'
 import ProductsById from './components/Products/ProductsById'
 import Footer from './components/Footer'
 import { CartProvider } from './context/CartContext'
+import ShoppingCart from './components/ShoppinCart'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route path='/' element={<Home />} />
             <Route path='products' element={<Products />} />
             <Route exact path='products/:id' element={<ProductsById />} />
+            <Route exact path='products/cart' element={<ShoppingCart />} />
             <Route path='*' element={<NotFound />} />
           </Routes>
           <Footer />
