@@ -21,7 +21,7 @@ const ProductsContainer = ({ product }) => {
         return [...currentProd, { ...product, quantity: 1 }]
       }
     })
-  }
+  }  
 
   const getQuantityById = (id) => {
     return cart.find((prod) => prod.id === id)?.quantity || 0
