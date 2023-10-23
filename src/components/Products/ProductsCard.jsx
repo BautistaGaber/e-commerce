@@ -1,33 +1,23 @@
-import { useContext } from 'react'
-import { CartContext } from '../../context/CartContext'
 import ButtonDetails from './ButtonDetails'
+import useAddProd from '../Hooks/useAddProd'
+import { useState, useEffect } from 'react'
 
 const ProductsContainer = ({ product }) => {
 
-  const [cart, setCart] = useContext(CartContext)
+  const { cart, addToCart, quantityPerItem } = useAddProd({ product })
+  const [addedToCart, setAddedToCart] = useState(false)
 
-  const addToCart = () => {
-    setCart((currentProd) => {
-      const prodFind = currentProd.find((prod) => prod.id === product.id)
-      if (prodFind) {
-        return currentProd.map((prod) => {
-          if (prod.id === product.id) {
-            return { ...prod, quantity: prod.quantity + 1 }
-          } else {
-            return prod
-          }
-        })
-      } else {
-        return [...currentProd, { ...product, quantity: 1 }]
-      }
-    })
-  }  
+  useEffect(() => {
+    const isProductInCart = cart.some((item) => item.id === product.id)
+    setAddedToCart(isProductInCart)
+  }, [cart, product.id])
 
-  const getQuantityById = (id) => {
-    return cart.find((prod) => prod.id === id)?.quantity || 0
+  const handleAddToCart = () => {
+    if (!addedToCart) {
+      addToCart(product)
+      setAddedToCart(true)
+    }
   }
-
-  const quantityPerItem = getQuantityById(product.id)
 
   return (
     <>
@@ -53,8 +43,8 @@ const ProductsContainer = ({ product }) => {
             </div>
           </div>
           <div className="flex justify-between">
-            <button className="text-blue-700 font-bold py-2 cursor-pointer" onClick={() => addToCart(product, 1)}>
-              Agregar al carrito
+            <button className={`text-blue-700 font-bold py-2 cursor-pointer ${addedToCart ? 'text-gray-500 cursor-not-allowed' : 'cursor-pointer'}`} onClick={handleAddToCart} disabled={addedToCart} >
+              {addedToCart ? 'Producto agregado' : 'Agregar al carrito'}
             </button>
             <a className="flex" href={`/products/${product.id}`}>
               <ButtonDetails buttonName="detalle" />
