@@ -7,6 +7,7 @@ import ProductsById from './components/Products/ProductsById'
 import Footer from './components/Footer'
 import { CartProvider } from './context/CartContext'
 import ShoppingCart from './components/ShoppinCart'
+import Checkout from './components/Checkout'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Route path='products' element={<Products />} />
             <Route exact path='products/:id' element={<ProductsById />} />
             <Route exact path='products/cart' element={<ShoppingCart />} />
+            <Route exact path='products/cart/checkout' element={<Checkout />} />
             <Route path='*' element={<NotFound />} />
           </Routes>
           <Footer />
