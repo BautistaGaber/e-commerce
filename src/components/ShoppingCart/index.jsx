@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { CartContext } from '../../context/CartContext'
 import CartCard from './CartCard'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 const ShoppingCart = () => {
     const [cart] = useContext(CartContext)
@@ -48,7 +48,7 @@ const ShoppingCart = () => {
                                     </div>
 
                                     <div className="mt-6 text-center">
-                                        {quantity === 0 ? <a href='/products'><p className='inline-flex w-3/6 items-center justify-center rounded-md bg-gray-900 px-6 py-4 text-lg font-semibold text-white transition-all duration-200 hover:bg-gray-800'> no hay elementos en el carrito</p></a> : (<NavLink to={'checkout'}><button type="button" className="group inline-flex w-full items-center justify-center rounded-md bg-gray-900 px-6 py-4 text-lg font-semibold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-gray-800">
+                                        {quantity === 0 ? <Link to='/products'><p className='inline-flex w-3/6 items-center justify-center rounded-md bg-gray-900 px-6 py-4 text-lg font-semibold text-white transition-all duration-200 hover:bg-gray-800'> no hay elementos en el carrito</p></Link> : (<NavLink to={'checkout'}><button type="button" className="group inline-flex w-full items-center justify-center rounded-md bg-gray-900 px-6 py-4 text-lg font-semibold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-gray-800">
                                             Checkout
                                             <svg xmlns="http://www.w3.org/2000/svg" className="group-hover:ml-8 ml-4 h-6 w-6 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                                                 <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
