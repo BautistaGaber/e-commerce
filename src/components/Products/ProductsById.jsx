@@ -4,30 +4,59 @@ import { useParams } from 'react-router-dom'
 
 const ProductById = () => {
     const [product, setProduct] = useState([])
+    const [loading, setLoading] = useState(true)
     const productById = useParams()
 
     useEffect(() => {
-        getProductById(productById.id)
-            .then((response) => response.json())
-            .then((data) => setProduct(data))
+        setTimeout(() => {
+            getProductById(productById.id)
+                .then((response) => response.json())
+                .then((data) => setProduct(data))
+                .finally(() =>
+                    setLoading(false))
+        }, 2000)
     }, [productById])
 
     console.log(product)
 
-    if (!product) {
-        return <h1>Cargando....</h1>
+    if (loading) {
+        return (
+            <section className="overflow-hidden py-11 font-poppins bg-gray-100">
+            <div className="max-w-5xl px-4 py-4 mx-auto">
+                <div className="flex flex-wrap mx-4">
+                    <div className="animate-pulse rounded-md border bg-gray-400 px-4 w-1/2"></div>
+                    <div className="w-full px-4 w-1/2 my-8 ">
+                        <div className="lg:pl-20">
+                            <div className="mb-8 ">
+                                <div className="animate-pulse rounded-md border bg-gray-400 w-12 h-5"></div>
+                                <h2 className="animate-pulse rounded-md border bg-gray-400 w-full h-40 mt-4"></h2>                      
+                                <div className="flex items-center mb-6 gap-2 mt-2">
+                                    <div className="h-6 w-24 animate-pulse rounded-md border bg-gray-400 "></div>                                 
+                                    <p className="h-6 w-32 animate-pulse rounded-md border bg-gray-400"></p>
+                                </div>
+                                <p className="h-24 animate-pulse rounded-md border bg-gray-400"></p>                        
+                                <p className="h-14 mt-5 text-gray-900 animate-pulse rounded-md border bg-gray-400"></p>                    
+                            </div>
+                            <div className="h-12 animate-pulse rounded-md border bg-gray-400">            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        )
     }
 
 
     return (
         <section className="overflow-hidden py-11 font-poppins bg-gray-100">
-            <div className="max-w-6xl px-4 py-4 mx-auto lg:py-8 md:px-6">
-                <div className="flex flex-wrap -mx-4">
-                    <div className="w-full px-4 md:w-1/2 h-1/4">
+            <div className="max-w-5xl px-4 py-4 mx-auto  ">
+                <div className="flex flex-wrap mx-4 ">
+                    <div className="w-full px-4 w-1/2">
                         <img src={product.image} alt="product image"
                             className="" />
                     </div>
-                    <div className="w-full px-4 md:w-1/2 ">
+                    <div className="w-full px-4 w-1/2 my-8 ">
                         <div className="lg:pl-20">
                             <div className="mb-8 ">
                                 <span className="text-lg font-medium text-rose-500 ">New</span>
@@ -86,7 +115,7 @@ const ProductById = () => {
                                     {product.description}
                                 </p>
                                 <p className="inline-block text-4xl font-bold text-gray-900 ">
-                                    <span>{product.price}</span>
+                                    <span>${product.price}</span>
                                     <span
                                         className="text-base font-normal  line-through text-gray-900">$1500.99</span>
                                 </p>
@@ -106,37 +135,6 @@ const ProductById = () => {
                                     </button>
                                     <button
                                         className="py-1 mb-2 mr-1 border w-11 hover:border-blue-400 border-gray-900 hover:text-blue-600 hover:border-gray-900 text-gray-900">XS
-                                    </button>
-                                </div>
-                            </div>
-                            <div className="w-32 mb-8 ">
-                                <label htmlFor=""
-                                    className="w-full text-xl font-semibold text-gray-900 ">Quantity</label>
-                                <div className="relative flex flex-row w-full h-10 mt-4 bg-transparent rounded-lg">
-                                    <button
-                                        className="w-20 h-full text-gray-600 bg-gray-300 rounded-l outline-none cursor-pointer dark:hover:bg-gray-700 dark:text-gray-400 hover:text-gray-700 dark:bg-gray-900 hover:bg-gray-400">
-                                        <span className="m-auto text-2xl font-thin">-</span>
-                                    </button>
-                                    <input type="number"
-                                        className="flex items-center w-full font-semibold text-center text-gray-700 placeholder-gray-700 bg-gray-300 outline-none dark:text-gray-400 dark:placeholder-gray-400 dark:bg-gray-900 focus:outline-none text-md hover:text-black"
-                                        placeholder="1" />
-                                    <button
-                                        className="w-20 h-full text-gray-600 bg-gray-300 rounded-r outline-none cursor-pointer dark:hover:bg-gray-700 dark:text-gray-400 dark:bg-gray-900 hover:text-gray-700 hover:bg-gray-400">
-                                        <span className="m-auto text-2xl font-thin">+</span>
-                                    </button>
-                                </div>
-                            </div>
-                            <div className="flex flex-wrap items-center -mx-4 ">
-                                <div className="w-full px-4 mb-4 lg:w-1/2 lg:mb-0">
-                                    <button
-                                        className="flex items-center justify-center w-full p-4 text-blue-500 border border-blue-500 rounded-md dark:text-gray-200 dark:border-blue-600 hover:bg-blue-600 hover:border-blue-600 hover:text-gray-100 dark:bg-blue-600 dark:hover:bg-blue-700 dark:hover:border-blue-700 dark:hover:text-gray-300">
-                                        Add to Cart
-                                    </button>
-                                </div>
-                                <div className="w-full px-4 mb-4 lg:mb-0 lg:w-1/2">
-                                    <button
-                                        className="flex items-center justify-center w-full p-4 text-blue-500 border border-blue-500 rounded-md dark:text-gray-200 dark:border-blue-600 hover:bg-blue-600 hover:border-blue-600 hover:text-gray-100 dark:bg-blue-600 dark:hover:bg-blue-700 dark:hover:border-blue-700 dark:hover:text-gray-300">
-                                        Add to wishlist
                                     </button>
                                 </div>
                             </div>
