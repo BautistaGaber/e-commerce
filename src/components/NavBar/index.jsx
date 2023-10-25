@@ -32,10 +32,10 @@ const NavBar = () => {
             </div >
 
             <header className="relative bg-white">
-                <p className="flex h-10 items-center justify-center bg-indigo-600 px-4 text-sm font-medium text-white sm:px-6 lg:px-8"><marquee direction=""><span>Get free delivery on orders over $100</span></marquee></p>
+                <p className="flex h-10 items-center justify-center bg-gray-900 px-4 text-sm font-medium text-white sm:px-6 lg:px-8"><marquee direction=""><span>Get free delivery on orders over $100</span></marquee></p>
 
                 <nav aria-label="Top" className="mx-auto">
-                    <div className="border-b border-gray-200 px-11">
+                    <div className="border-b border-gray-200 px-11 ">
                         <div className="flex h-16 items-center">
                             {/* <!-- Logo --> */}
                             <div className="ml-4 flex lg:ml-0">
