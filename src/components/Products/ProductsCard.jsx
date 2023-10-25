@@ -1,5 +1,6 @@
 import useAddProd from '../Hooks/useAddProd'
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 const ProductsContainer = ({ product }) => {
 
@@ -21,12 +22,12 @@ const ProductsContainer = ({ product }) => {
   return (
     <>
       <div className="my-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
-        <a className='relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl group' href={`../products/${product.id}`}>
+        <Link to={`/products/${product.id}`} className='relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl group'>
           <img className='absolute top-0 right-0 h-full w-full object-cover hover:scale-110 transition-transform duration-500 cursor-pointer' src={product.image} alt="product image" />
           <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white rounded-full bg-gray-900 bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 py-2 px-4">
             Ver Producto
           </span>
-        </a>
+        </Link>
         <div className="mt-4 px-5 pb-5">
           <div className='w-full h-24'>
             <h5 className="text-base tracking-tight text-slate-900">{product.title}</h5>
