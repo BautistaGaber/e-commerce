@@ -1,30 +1,45 @@
 import { useContext } from 'react'
 import ItemCard from './ItemCard'
 import { CartContext } from '../../context/CartContext'
+import PaymentAlert from './PaymentAlert'
+import { useState } from 'react'
 import useAddProd from '../Hooks/useAddProd'
+import Completed from './Completed'
 
 const Checkout = () => {
     const [cart] = useContext(CartContext)
-    const {clearCart} = useAddProd({product: cart})
+    const { clearCart } = useAddProd({ product: cart })
+    const [showAlert, setShowAlert] = useState(false)
+
+    const handlePlaceOrderClick = (shouldClearCart) => {
+        setShowAlert(false)
+
+        if (shouldClearCart) {
+            clearCart()
+            return (
+            <Completed/>
+            )
+        }
+    }
 
     const subTotalPrice = cart.reduce((acc, prod) => acc + prod.quantity * prod.price, 0)
     const totalPrice = subTotalPrice + 8
 
 
     return (
-        <>     
+        <>
             <div className="grid sm:px-10 lg:grid-cols-2 lg:px-20 xl:px-32 py-5">
                 <div className="px-4 pt-8">
                     <p className="text-xl font-medium">Order Summary</p>
                     <p className="text-gray-400">Check your items. And select a suitable shipping method.</p>
                     <div className="mt-8 space-y-3 rounded-lg border bg-white px-2 py-4 sm:px-6">
-                    {
-                    cart.map((product) => (
-                        <div key={product.id}>
-                            <ItemCard product={product} />
-                        </div>
-                    ))
-                }
+                        {
+                            cart.map((product) => (
+                                <div key={product.id}>
+                                    <ItemCard product={product} />
+                                </div>
+                            ))
+                        }
                     </div>
                     <p className="mt-8 text-lg font-medium">Shipping Methods</p>
                     <form className="mt-5 grid gap-6">
@@ -117,7 +132,8 @@ const Checkout = () => {
                             <p className="text-2xl font-semibold text-gray-900">${totalPrice}</p>
                         </div>
                     </div>
-                    <button onClick={clearCart} className="mt-4 mb-8 w-full rounded-md bg-gray-900 px-6 py-3 font-medium text-white">Place Order</button>
+                    <button onClick={() => setShowAlert(true)} className="mt-4 mb-8 w-full rounded-md bg-gray-900 px-6 py-3 font-medium text-white">Place Order </button>
+                    {showAlert && (<PaymentAlert onClose={() => handlePlaceOrderClick(false)} onPay={() => handlePlaceOrderClick(true)} />)}
                 </div>
             </div>
         </>
