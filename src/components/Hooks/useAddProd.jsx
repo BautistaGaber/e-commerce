@@ -37,6 +37,12 @@ const useAddProd = ({ product }) => {
         })
     }
 
+    const removeAllProduct = (id) => {
+        setCart((currentProd) => {
+          return currentProd.filter((prod) => prod.id !== id);
+        })
+      }
+
     const clearCart = () => {
         setCart([])
     }
@@ -51,6 +57,7 @@ const useAddProd = ({ product }) => {
         cart,
         addToCart,
         removeProduct,
+        removeAllProduct,
         clearCart,
         getQuantityById,
         quantityPerItem,
