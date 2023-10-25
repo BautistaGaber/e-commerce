@@ -6,12 +6,14 @@ import NotFound from './components/NotFound/NotFound'
 import ProductsById from './components/Products/ProductsById'
 import Footer from './components/Footer'
 import { CartProvider } from './context/CartContext'
-import ShoppingCart from './components/ShoppinCart'
+import ShoppingCart from './components/ShoppingCart'
 import Checkout from './components/Checkout'
+import { SkeletonTheme } from 'react-loading-skeleton'
 
 function App() {
   return (
     <>
+    <SkeletonTheme baseColor="#313131" highlightColor="#525252">
       <BrowserRouter>
         <CartProvider>
           <NavBar />
@@ -26,6 +28,7 @@ function App() {
           <Footer />
         </CartProvider>
       </BrowserRouter>
+      </SkeletonTheme>
     </>
   )
 }
