@@ -37,6 +37,10 @@ const useAddProd = ({ product }) => {
         })
     }
 
+    const clearCart = () => {
+        setCart([])
+    }
+
     const getQuantityById = (id) => {
         return cart.find((prod) => prod.id === id)?.quantity || 0
     }
@@ -47,6 +51,7 @@ const useAddProd = ({ product }) => {
         cart,
         addToCart,
         removeProduct,
+        clearCart,
         getQuantityById,
         quantityPerItem,
     }
