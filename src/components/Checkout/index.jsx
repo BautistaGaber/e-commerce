@@ -4,7 +4,6 @@ import { CartContext } from '../../context/CartContext'
 import PaymentAlert from './PaymentAlert'
 import { useState } from 'react'
 import useAddProd from '../Hooks/useAddProd'
-import Completed from './Completed'
 
 const Checkout = () => {
     const [cart] = useContext(CartContext)
