@@ -8,12 +8,10 @@ import Footer from './components/Footer'
 import { CartProvider } from './context/CartContext'
 import ShoppingCart from './components/ShoppingCart'
 import Checkout from './components/Checkout'
-import { SkeletonTheme } from 'react-loading-skeleton'
 
 function App() {
   return (
     <>
-    <SkeletonTheme baseColor="#313131" highlightColor="#525252">
       <BrowserRouter>
         <CartProvider>
           <NavBar />
@@ -23,12 +21,11 @@ function App() {
             <Route exact path='products/:id' element={<ProductsById />} />
             <Route exact path='products/cart' element={<ShoppingCart />} />
             <Route exact path='products/cart/checkout' element={<Checkout />} />
-            <Route path='*' element={<NotFound />} />
+            <Route exact path='*' element={<NotFound />} />
           </Routes>
           <Footer />
         </CartProvider>
       </BrowserRouter>
-      </SkeletonTheme>
     </>
   )
 }
