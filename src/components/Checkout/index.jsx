@@ -15,9 +15,6 @@ const Checkout = () => {
 
         if (shouldClearCart) {
             clearCart()
-            return (
-            <Completed/>
-            )
         }
     }
 
