@@ -21,7 +21,7 @@ function App() {
             <Route exact path='products/:id' element={<ProductsById />} />
             <Route exact path='products/cart' element={<ShoppingCart />} />
             <Route exact path='products/cart/checkout' element={<Checkout />} />
-            <Route exact path='*' element={<NotFound />} />
+            <Route path='*' element={<NotFound />} />
           </Routes>
           <Footer />
         </CartProvider>
