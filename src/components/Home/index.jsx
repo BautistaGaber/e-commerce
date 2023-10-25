@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 
 const Home = () => {
     return (
@@ -9,7 +10,7 @@ const Home = () => {
                         <p className="mt-4 text-xl text-gray-500">This year, our new summer collection will shelter you from the harsh elements of a world that  care if you live or die.</p>
                     </div>
                     <div className="mt-10">
-                        <a href="/products" className="inline-block rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-center font-medium text-white hover:bg-indigo-700">Products Collection</a>
+                        <Link to="/products" className="inline-block rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-center font-medium text-white hover:bg-indigo-700">Products Collection</Link>
                     </div>
                 </div>
                 <div>
