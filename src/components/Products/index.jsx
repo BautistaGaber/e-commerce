@@ -6,7 +6,7 @@ import { getListProducts } from './GetProducts'
 
 const ItemListContainer = () => {
   const [products, setProducts] = useState([])
-  const [Loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     setTimeout(() => {
@@ -20,7 +20,7 @@ const ItemListContainer = () => {
 
   console.log(products)
 
-  if (Loading) {
+  if (loading) {
     return (
       <div className="bg-white">
         <div className=" mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
