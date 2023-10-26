@@ -17,8 +17,6 @@ const ProductById = () => {
         }, 2000)
     }, [productById])
 
-    console.log(product)
-
     if (loading) {
         return (
             <section className="overflow-hidden py-11 font-poppins bg-gray-100">
