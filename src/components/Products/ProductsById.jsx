@@ -23,9 +23,9 @@ const ProductById = () => {
         return (
             <section className="overflow-hidden py-11 font-poppins bg-gray-100">
             <div className="max-w-5xl px-4 py-4 mx-auto">
-                <div className="flex flex-wrap mx-4">
-                    <div className="animate-pulse rounded-md border bg-gray-400 px-4 w-1/2"></div>
-                    <div className="w-full px-4 w-1/2 my-8 ">
+                <div className="flex mx-4">
+                    <div className="animate-pulse rounded-md border bg-gray-400 px-4 w-full"></div>
+                    <div className="w-full px-4 w-1/2 my-8">
                         <div className="lg:pl-20">
                             <div className="mb-8 ">
                                 <div className="animate-pulse rounded-md border bg-gray-400 w-12 h-5"></div>
@@ -50,13 +50,13 @@ const ProductById = () => {
 
     return (
         <section className="overflow-hidden py-11 font-poppins bg-gray-100">
-            <div className="max-w-5xl px-4 py-4 mx-auto  ">
-                <div className="flex flex-wrap mx-4 ">
-                    <div className="w-full px-4 w-1/2">
+            <div className="max-w-5xl px-4 py-4 mx-auto">
+                <div className="flex mx-4">
+                    <div className="w-full px-4 ">
                         <img src={product.image} alt="product image"
                             className="" />
                     </div>
-                    <div className="w-full px-4 w-1/2 my-8 ">
+                    <div className="w-full px-4 w-1/2 my-8">
                         <div className="lg:pl-20">
                             <div className="mb-8 ">
                                 <span className="text-lg font-medium text-rose-500 ">New</span>
