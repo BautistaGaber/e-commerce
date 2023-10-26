@@ -12,4 +12,4 @@ Este es un proyecto de e-commerce de ropa desarrollado utilizando React, una pop
 
 - React: Biblioteca principal para la construcción de la interfaz de usuario.
 - React Router: Para gestionar las rutas y la navegación dentro de la aplicación.
-- CSS: Estilos personalizados y/o librerías de CSS-in-JS.
+- Tailwind CSS: Para la estilización de la interfaz de la pagina.
