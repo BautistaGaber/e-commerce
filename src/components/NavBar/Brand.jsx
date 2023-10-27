@@ -1,7 +1,9 @@
+import { Link } from 'react-router-dom'
+
 export const Brand = () => {
     return (
-        <a href="#">
-            <img className="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" />
-        </a>
+        <Link to='/'>
+            <img className="h-9 w-16" src='/img/Logo.png' alt="foto logo" />
+        </Link>
     )
 }
