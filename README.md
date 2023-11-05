@@ -1,6 +1,6 @@
 # E-Commerce de Ropa con React
 
-Este es un proyecto de e-commerce de ropa desarrollado utilizando React, una popular biblioteca de JavaScript para la construcción de interfaces de usuario. En este proyecto, los usuarios pueden navegar por una variedad de prendas de vestir, agregar productos a su carrito de compras y realizar pedidos.
+Este es un proyecto de e-commerce de ropa desarrollado utilizando React, una popular biblioteca de JavaScript para la construcción de interfaces de usuario. En este proyecto, los usuarios pueden navegar por una variedad de prendas de vestir, agregar productos a su carrito de compras y realizar pedidos. (no es responsive)
 
 ## Características
 
