@@ -8,7 +8,6 @@ const ProductById = () => {
 
      const productById = useParams()
 
-
     console.log(productById)
 
     useEffect(() => {
