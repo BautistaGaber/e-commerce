@@ -1,21 +1,38 @@
 import { useState, useEffect } from 'react'
-import { getProductById } from './GetProducts'
 import { useParams } from 'react-router-dom'
+import { doc, getDoc, getFirestore } from 'firebase/firestore'
 
 const ProductById = () => {
     const [product, setProduct] = useState([])
     const [loading, setLoading] = useState(true)
-    const productById = useParams()
+
+     const productById = useParams()
+
+
+    console.log(productById)
 
     useEffect(() => {
         setTimeout(() => {
-            getProductById(productById.id)
-                .then((response) => response.json())
-                .then((data) => setProduct(data))
-                .finally(() =>
-                    setLoading(false))
-        }, 2000)
-    }, [productById])
+        const fetchProduct = async () => {
+          try {
+            const db = getFirestore()
+            const prodRef = doc(db, 'products', productById.id)
+            const productSnapshot = await getDoc(prodRef)
+
+            if (productSnapshot.exists()) {
+              setProduct({ id: productSnapshot.id, ...productSnapshot.data() })
+            }
+          } catch (error) {
+            console.error('Error al obtener el producto:', error)
+          }  
+        }
+        fetchProduct().
+        finally(() => setLoading(false))}, 2000)}
+        ,[productById])
+
+      
+      console.log(product)
+
 
     if (loading) {
         return (

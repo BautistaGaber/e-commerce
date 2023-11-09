@@ -1,7 +1,7 @@
 
 import ProductsContainer from './ProductsCard'
 import { useEffect, useState, memo } from 'react'
-import { getListProducts } from './GetProducts'
+import { collection, getDocs, getFirestore } from 'firebase/firestore'
 
 
 const ItemListContainer = () => {
@@ -10,13 +10,22 @@ const ItemListContainer = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      getListProducts()
-        .then((response) => response.json())
-        .then((data) => setProducts(data))
-        .finally(() =>
-          setLoading(false))
+      const db = getFirestore()
+      const productsCollection = collection(db, 'products')
+
+      getDocs(productsCollection)
+        .then((querySnapshot) => {
+          const productsData = []
+          querySnapshot.forEach((doc) => {
+            productsData.push({ id: doc.id, ...doc.data() })
+          })
+          setProducts(productsData)
+        })
+        .finally(() => setLoading(false))
     }, 2000)
   }, [])
+
+  console.log(products)
 
   if (loading) {
     return (
@@ -26,7 +35,7 @@ const ItemListContainer = () => {
           <div className="mt-8 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
             {Array.from(new Array(20)).map(() => {
               return (
-                <div key={crypto.randomUUID()} className="animate-pulse border bg-gray-400 shadow rounded-md p-4 max-w-sm w-full mx-auto h-96"></div>                                               
+                <div key={crypto.randomUUID()} className="animate-pulse border bg-gray-400 shadow rounded-md p-4 max-w-sm w-full mx-auto h-96"></div>
               )
             })}
           </div>
